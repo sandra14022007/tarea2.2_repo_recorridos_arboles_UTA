@@ -1,6 +1,6 @@
 # Recorridos de Árboles Binarios - Estructura de Datos
 
-**Universidad Técnica de Ambato**  
+**Universidad Técnica de Ambato**  s
 **Carrera:** Ingeniería de Software  
 **Asignatura:** Estructura de Datos  
 **Curso:** Tercero B  
