@@ -77,7 +77,6 @@ void bfs(Nodo* raiz) {
 }
 
 // ===============================
-// EJERCICIO 3
 // CONTAR NODOS
 // ===============================
 int contarNodos(Nodo* raiz) {
@@ -88,6 +87,26 @@ int contarNodos(Nodo* raiz) {
     return 1 +
            contarNodos(raiz->izquierda) +
            contarNodos(raiz->derecha);
+}
+
+// ===============================
+// EJERCICIO 4
+// CONTAR HOJAS
+// ===============================
+int contarHojas(Nodo* raiz) {
+
+    if (raiz == nullptr)
+        return 0;
+
+    // Si no tiene hijos -> hoja
+    if (raiz->izquierda == nullptr &&
+        raiz->derecha == nullptr) {
+
+        return 1;
+    }
+
+    return contarHojas(raiz->izquierda) +
+           contarHojas(raiz->derecha);
 }
 
 int main() {
@@ -124,11 +143,14 @@ int main() {
     cout << "\nBFS: ";
     bfs(raiz);
 
-    // ===============================
-    // MOSTRAR TOTAL DE NODOS
-    // ===============================
     cout << "\n\nTotal de nodos: "
          << contarNodos(raiz);
+
+    // ===============================
+    // MOSTRAR TOTAL DE HOJAS
+    // ===============================
+    cout << "\nTotal de hojas: "
+         << contarHojas(raiz);
 
     cout << endl;
 
