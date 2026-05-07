@@ -3,9 +3,6 @@
 
 using namespace std;
 
-// ===============================
-// ESTRUCTURA DEL NODO
-// ===============================
 struct Nodo {
     int dato;
     Nodo* izquierda;
@@ -19,7 +16,7 @@ struct Nodo {
 };
 
 // ===============================
-// PREORDEN
+// RECORRIDOS
 // ===============================
 void preorden(Nodo* raiz) {
 
@@ -32,9 +29,6 @@ void preorden(Nodo* raiz) {
     preorden(raiz->derecha);
 }
 
-// ===============================
-// INORDEN
-// ===============================
 void inorden(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -47,9 +41,6 @@ void inorden(Nodo* raiz) {
     inorden(raiz->derecha);
 }
 
-// ===============================
-// POSTORDEN
-// ===============================
 void postorden(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -61,9 +52,6 @@ void postorden(Nodo* raiz) {
     cout << raiz->dato << " ";
 }
 
-// ===============================
-// BFS
-// ===============================
 void bfs(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -88,11 +76,22 @@ void bfs(Nodo* raiz) {
     }
 }
 
+// ===============================
+// EJERCICIO 3
+// CONTAR NODOS
+// ===============================
+int contarNodos(Nodo* raiz) {
+
+    if (raiz == nullptr)
+        return 0;
+
+    return 1 +
+           contarNodos(raiz->izquierda) +
+           contarNodos(raiz->derecha);
+}
+
 int main() {
 
-    // ===============================
-    // CREACIÓN DEL ÁRBOL
-    // ===============================
     Nodo* raiz = new Nodo(10);
 
     raiz->izquierda = new Nodo(5);
@@ -104,22 +103,13 @@ int main() {
     raiz->derecha->izquierda = new Nodo(12);
     raiz->derecha->derecha = new Nodo(20);
 
-    // ===============================
     // EJERCICIO 2
-    // AGREGAR NUEVOS NODOS
-    // ===============================
-
-    // Hijos del nodo 2
     raiz->izquierda->izquierda->izquierda = new Nodo(1);
     raiz->izquierda->izquierda->derecha = new Nodo(3);
 
-    // Hijos del nodo 20
     raiz->derecha->derecha->izquierda = new Nodo(18);
     raiz->derecha->derecha->derecha = new Nodo(25);
 
-    // ===============================
-    // MOSTRAR RECORRIDOS
-    // ===============================
     cout << "RECORRIDOS DEL ARBOL" << endl;
 
     cout << "\nPreorden: ";
@@ -133,6 +123,12 @@ int main() {
 
     cout << "\nBFS: ";
     bfs(raiz);
+
+    // ===============================
+    // MOSTRAR TOTAL DE NODOS
+    // ===============================
+    cout << "\n\nTotal de nodos: "
+         << contarNodos(raiz);
 
     cout << endl;
 
