@@ -3,21 +3,26 @@
 
 using namespace std;
 
+// ======================================
+// ESTRUCTURA DEL NODO
+// ======================================
 struct Nodo {
-    int dato;
+    string dato;
     Nodo* izquierda;
     Nodo* derecha;
 
-    Nodo(int valor) {
+    // Constructor
+    Nodo(string valor) {
         dato = valor;
         izquierda = nullptr;
         derecha = nullptr;
     }
 };
 
-// ===============================
-// RECORRIDOS
-// ===============================
+// ======================================
+// PREORDEN
+// Raíz -> Izquierda -> Derecha
+// ======================================
 void preorden(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -29,6 +34,10 @@ void preorden(Nodo* raiz) {
     preorden(raiz->derecha);
 }
 
+// ======================================
+// INORDEN
+// Izquierda -> Raíz -> Derecha
+// ======================================
 void inorden(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -41,6 +50,10 @@ void inorden(Nodo* raiz) {
     inorden(raiz->derecha);
 }
 
+// ======================================
+// POSTORDEN
+// Izquierda -> Derecha -> Raíz
+// ======================================
 void postorden(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -52,6 +65,10 @@ void postorden(Nodo* raiz) {
     cout << raiz->dato << " ";
 }
 
+// ======================================
+// BFS
+// Recorrido por niveles
+// ======================================
 void bfs(Nodo* raiz) {
 
     if (raiz == nullptr)
@@ -68,6 +85,7 @@ void bfs(Nodo* raiz) {
 
         cout << actual->dato << " ";
 
+        // Insertar hijos
         if (actual->izquierda != nullptr)
             cola.push(actual->izquierda);
 
@@ -76,62 +94,30 @@ void bfs(Nodo* raiz) {
     }
 }
 
-// ===============================
-// CONTAR NODOS
-// ===============================
-int contarNodos(Nodo* raiz) {
-
-    if (raiz == nullptr)
-        return 0;
-
-    return 1 +
-           contarNodos(raiz->izquierda) +
-           contarNodos(raiz->derecha);
-}
-
-// ===============================
-// EJERCICIO 4
-// CONTAR HOJAS
-// ===============================
-int contarHojas(Nodo* raiz) {
-
-    if (raiz == nullptr)
-        return 0;
-
-    // Si no tiene hijos -> hoja
-    if (raiz->izquierda == nullptr &&
-        raiz->derecha == nullptr) {
-
-        return 1;
-    }
-
-    return contarHojas(raiz->izquierda) +
-           contarHojas(raiz->derecha);
-}
-
 int main() {
 
-    Nodo* raiz = new Nodo(10);
+    // ======================================
+    // ÁRBOL DEL SISTEMA WEB
+    // ======================================
 
-    raiz->izquierda = new Nodo(5);
-    raiz->derecha = new Nodo(15);
+    Nodo* raiz = new Nodo("Sistema Web");
 
-    raiz->izquierda->izquierda = new Nodo(2);
-    raiz->izquierda->derecha = new Nodo(7);
+    raiz->izquierda = new Nodo("Usuarios");
+    raiz->derecha = new Nodo("Inventario");
 
-    raiz->derecha->izquierda = new Nodo(12);
-    raiz->derecha->derecha = new Nodo(20);
+    raiz->izquierda->izquierda = new Nodo("Registrar");
+    raiz->izquierda->derecha = new Nodo("Buscar");
 
-    // EJERCICIO 2
-    raiz->izquierda->izquierda->izquierda = new Nodo(1);
-    raiz->izquierda->izquierda->derecha = new Nodo(3);
+    raiz->derecha->izquierda = new Nodo("Productos");
+    raiz->derecha->derecha = new Nodo("Reportes");
 
-    raiz->derecha->derecha->izquierda = new Nodo(18);
-    raiz->derecha->derecha->derecha = new Nodo(25);
+    // ======================================
+    // MOSTRAR RECORRIDOS
+    // ======================================
 
-    cout << "RECORRIDOS DEL ARBOL" << endl;
+    cout << "SISTEMA WEB - ARBOL BINARIO" << endl;
 
-    cout << "\nPreorden: ";
+    cout << "\n\nPreorden: ";
     preorden(raiz);
 
     cout << "\nInorden: ";
@@ -143,14 +129,23 @@ int main() {
     cout << "\nBFS: ";
     bfs(raiz);
 
-    cout << "\n\nTotal de nodos: "
-         << contarNodos(raiz);
+    // ======================================
+    // EXPLICACIÓN DE RECORRIDOS
+    // ======================================
 
-    // ===============================
-    // MOSTRAR TOTAL DE HOJAS
-    // ===============================
-    cout << "\nTotal de hojas: "
-         << contarHojas(raiz);
+    cout << "\n\n===== APLICACION DE RECORRIDOS =====";
+
+    cout << "\n\n1. Mostrar el menu principal:";
+    cout << "\nSe recomienda BFS porque muestra";
+    cout << "\nlos modulos nivel por nivel.";
+
+    cout << "\n\n2. Procesar primero modulos internos:";
+    cout << "\nSe recomienda Postorden porque";
+    cout << "\nprocesa primero los hijos.";
+
+    cout << "\n\n3. Mostrar primero el modulo principal:";
+    cout << "\nSe recomienda Preorden porque";
+    cout << "\nvisita primero la raiz.";
 
     cout << endl;
 
