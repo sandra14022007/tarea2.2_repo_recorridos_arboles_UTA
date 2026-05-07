@@ -78,7 +78,6 @@ public class Main {
     }
 
     // ======================================
-    // EJERCICIO 3
     // CONTAR NODOS
     // ======================================
     public static int contarNodos(Nodo raiz) {
@@ -89,6 +88,26 @@ public class Main {
         return 1 +
                contarNodos(raiz.izquierda) +
                contarNodos(raiz.derecha);
+    }
+
+    // ======================================
+    // EJERCICIO 4
+    // CONTAR HOJAS
+    // ======================================
+    public static int contarHojas(Nodo raiz) {
+
+        if (raiz == null)
+            return 0;
+
+        // Si no tiene hijos -> hoja
+        if (raiz.izquierda == null &&
+            raiz.derecha == null) {
+
+            return 1;
+        }
+
+        return contarHojas(raiz.izquierda) +
+               contarHojas(raiz.derecha);
     }
 
     public static void main(String[] args) {
@@ -125,10 +144,13 @@ public class Main {
         System.out.print("\nBFS: ");
         bfs(raiz);
 
-        // ======================================
-        // MOSTRAR TOTAL DE NODOS
-        // ======================================
         System.out.print("\n\nTotal de nodos: ");
         System.out.println(contarNodos(raiz));
+
+        // ======================================
+        // MOSTRAR TOTAL DE HOJAS
+        // ======================================
+        System.out.print("Total de hojas: ");
+        System.out.println(contarHojas(raiz));
     }
 }
