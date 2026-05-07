@@ -1,13 +1,16 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
+// ======================================
+// CLASE NODO
+// ======================================
 class Nodo {
 
-    int dato;
+    String dato;
     Nodo izquierda;
     Nodo derecha;
 
-    public Nodo(int dato) {
+    public Nodo(String dato) {
         this.dato = dato;
         this.izquierda = null;
         this.derecha = null;
@@ -17,9 +20,8 @@ class Nodo {
 public class Main {
 
     // ======================================
-    // RECORRIDOS
+    // PREORDEN
     // ======================================
-
     public static void preorden(Nodo raiz) {
 
         if (raiz == null)
@@ -31,6 +33,9 @@ public class Main {
         preorden(raiz.derecha);
     }
 
+    // ======================================
+    // INORDEN
+    // ======================================
     public static void inorden(Nodo raiz) {
 
         if (raiz == null)
@@ -43,6 +48,9 @@ public class Main {
         inorden(raiz.derecha);
     }
 
+    // ======================================
+    // POSTORDEN
+    // ======================================
     public static void postorden(Nodo raiz) {
 
         if (raiz == null)
@@ -54,6 +62,9 @@ public class Main {
         System.out.print(raiz.dato + " ");
     }
 
+    // ======================================
+    // BFS
+    // ======================================
     public static void bfs(Nodo raiz) {
 
         if (raiz == null)
@@ -77,60 +88,28 @@ public class Main {
         }
     }
 
-    // ======================================
-    // CONTAR NODOS
-    // ======================================
-    public static int contarNodos(Nodo raiz) {
-
-        if (raiz == null)
-            return 0;
-
-        return 1 +
-               contarNodos(raiz.izquierda) +
-               contarNodos(raiz.derecha);
-    }
-
-    // ======================================
-    // EJERCICIO 4
-    // CONTAR HOJAS
-    // ======================================
-    public static int contarHojas(Nodo raiz) {
-
-        if (raiz == null)
-            return 0;
-
-        // Si no tiene hijos -> hoja
-        if (raiz.izquierda == null &&
-            raiz.derecha == null) {
-
-            return 1;
-        }
-
-        return contarHojas(raiz.izquierda) +
-               contarHojas(raiz.derecha);
-    }
-
     public static void main(String[] args) {
 
-        Nodo raiz = new Nodo(10);
+        // ======================================
+        // ÁRBOL DEL SISTEMA WEB
+        // ======================================
 
-        raiz.izquierda = new Nodo(5);
-        raiz.derecha = new Nodo(15);
+        Nodo raiz = new Nodo("Sistema Web");
 
-        raiz.izquierda.izquierda = new Nodo(2);
-        raiz.izquierda.derecha = new Nodo(7);
+        raiz.izquierda = new Nodo("Usuarios");
+        raiz.derecha = new Nodo("Inventario");
 
-        raiz.derecha.izquierda = new Nodo(12);
-        raiz.derecha.derecha = new Nodo(20);
+        raiz.izquierda.izquierda = new Nodo("Registrar");
+        raiz.izquierda.derecha = new Nodo("Buscar");
 
-        // EJERCICIO 2
-        raiz.izquierda.izquierda.izquierda = new Nodo(1);
-        raiz.izquierda.izquierda.derecha = new Nodo(3);
+        raiz.derecha.izquierda = new Nodo("Productos");
+        raiz.derecha.derecha = new Nodo("Reportes");
 
-        raiz.derecha.derecha.izquierda = new Nodo(18);
-        raiz.derecha.derecha.derecha = new Nodo(25);
+        // ======================================
+        // MOSTRAR RECORRIDOS
+        // ======================================
 
-        System.out.println("RECORRIDOS DEL ARBOL");
+        System.out.println("SISTEMA WEB - ARBOL BINARIO");
 
         System.out.print("\nPreorden: ");
         preorden(raiz);
@@ -144,13 +123,22 @@ public class Main {
         System.out.print("\nBFS: ");
         bfs(raiz);
 
-        System.out.print("\n\nTotal de nodos: ");
-        System.out.println(contarNodos(raiz));
+        // ======================================
+        // EXPLICACIÓN DE RECORRIDOS
+        // ======================================
 
-        // ======================================
-        // MOSTRAR TOTAL DE HOJAS
-        // ======================================
-        System.out.print("Total de hojas: ");
-        System.out.println(contarHojas(raiz));
+        System.out.println("\n\n===== APLICACION DE RECORRIDOS =====");
+
+        System.out.println("\n1. Mostrar el menu principal:");
+        System.out.println("Se recomienda BFS porque muestra");
+        System.out.println("los modulos nivel por nivel.");
+
+        System.out.println("\n2. Procesar primero modulos internos:");
+        System.out.println("Se recomienda Postorden porque");
+        System.out.println("procesa primero los hijos.");
+
+        System.out.println("\n3. Mostrar primero el modulo principal:");
+        System.out.println("Se recomienda Preorden porque");
+        System.out.println("visita primero la raiz.");
     }
 }
