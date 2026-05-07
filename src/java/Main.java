@@ -1,16 +1,12 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-// ======================================
-// CLASE NODO
-// ======================================
 class Nodo {
 
     int dato;
     Nodo izquierda;
     Nodo derecha;
 
-    // Constructor
     public Nodo(int dato) {
         this.dato = dato;
         this.izquierda = null;
@@ -21,8 +17,9 @@ class Nodo {
 public class Main {
 
     // ======================================
-    // PREORDEN
+    // RECORRIDOS
     // ======================================
+
     public static void preorden(Nodo raiz) {
 
         if (raiz == null)
@@ -34,9 +31,6 @@ public class Main {
         preorden(raiz.derecha);
     }
 
-    // ======================================
-    // INORDEN
-    // ======================================
     public static void inorden(Nodo raiz) {
 
         if (raiz == null)
@@ -49,9 +43,6 @@ public class Main {
         inorden(raiz.derecha);
     }
 
-    // ======================================
-    // POSTORDEN
-    // ======================================
     public static void postorden(Nodo raiz) {
 
         if (raiz == null)
@@ -63,9 +54,6 @@ public class Main {
         System.out.print(raiz.dato + " ");
     }
 
-    // ======================================
-    // BFS
-    // ======================================
     public static void bfs(Nodo raiz) {
 
         if (raiz == null)
@@ -89,11 +77,22 @@ public class Main {
         }
     }
 
+    // ======================================
+    // EJERCICIO 3
+    // CONTAR NODOS
+    // ======================================
+    public static int contarNodos(Nodo raiz) {
+
+        if (raiz == null)
+            return 0;
+
+        return 1 +
+               contarNodos(raiz.izquierda) +
+               contarNodos(raiz.derecha);
+    }
+
     public static void main(String[] args) {
 
-        // ======================================
-        // CREACIÓN DEL ÁRBOL
-        // ======================================
         Nodo raiz = new Nodo(10);
 
         raiz.izquierda = new Nodo(5);
@@ -105,22 +104,12 @@ public class Main {
         raiz.derecha.izquierda = new Nodo(12);
         raiz.derecha.derecha = new Nodo(20);
 
-        // ======================================
         // EJERCICIO 2
-        // AGREGAR NUEVOS NODOS
-        // ======================================
-
-        // Hijos del nodo 2
         raiz.izquierda.izquierda.izquierda = new Nodo(1);
         raiz.izquierda.izquierda.derecha = new Nodo(3);
 
-        // Hijos del nodo 20
         raiz.derecha.derecha.izquierda = new Nodo(18);
         raiz.derecha.derecha.derecha = new Nodo(25);
-
-        // ======================================
-        // MOSTRAR RECORRIDOS
-        // ======================================
 
         System.out.println("RECORRIDOS DEL ARBOL");
 
@@ -136,6 +125,10 @@ public class Main {
         System.out.print("\nBFS: ");
         bfs(raiz);
 
-        System.out.println();
+        // ======================================
+        // MOSTRAR TOTAL DE NODOS
+        // ======================================
+        System.out.print("\n\nTotal de nodos: ");
+        System.out.println(contarNodos(raiz));
     }
 }
