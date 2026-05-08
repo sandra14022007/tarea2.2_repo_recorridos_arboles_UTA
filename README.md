@@ -171,10 +171,11 @@ Se añadieron los nodos:
 - Nuevos recorridos automáticos
 - Expansión de niveles del árbol
 
-![image copy 3](assets/image%20copy%203.png)
-![image copy 4](assets/image%20copy%204.png)
+<img src="assets/image%20copy%203.png" width="350">
 
-![image copy 5](assets/image%20copy%205.png)
+<img src="assets/image%20copy%204.png" width="350">
+
+<img src="assets/image%20copy%205.png" width="300">
 ---
 
 # Ejercicio 3 — Contar nodos
@@ -190,10 +191,12 @@ contarNodos()
 Recorre todo el árbol y suma cada nodo encontrado.
 
 ## Resultado
-![image copy 6](assets/image%20copy%206.png)
-![image copy 7](assets/image%20copy%207.png)
+<img src="assets/image%20copy%206.png" width="350">
 
-![image copy 8](assets/image%20copy%208.png)
+<img src="assets/image%20copy%207.png" width="350">
+
+<img src="assets/image%20copy%208.png" width="350">
+
 ```text
 Total de nodos: 11
 ```
@@ -219,8 +222,9 @@ Identifica nodos sin hijos.
 ```
 
 ## Resultado
-![image copy 9](assets/image%20copy%209.png)
-![image copy 10](assets/image%20copy%2010.png)
+<img src="assets/image%20copy%209.png" width="350">
+
+<img src="assets/image%20copy%2010.png" width="350">
 ```text
 Total de hojas: 6
 ```
