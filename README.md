@@ -81,3 +81,232 @@ java Main
 | Aplicación al proyecto final | 2 |
 | Uso de GitHub e IA documentada | 1.5 |
 
+# Resolucion 
+
+## Tema
+Implementación de recorridos de árboles binarios utilizando:
+
+- C++
+- Java
+- Recursividad
+- Cola (Queue)
+
+---
+
+# Introducción
+
+Los árboles binarios permiten organizar información jerárquicamente mediante nodos conectados entre sí.  
+En esta práctica se implementaron los recorridos:
+
+- Preorden
+- Inorden
+- Postorden
+- BFS (Breadth First Search)
+
+Se trabajó en **C++ y Java**, comparando sintaxis, estructuras dinámicas y manejo de memoria.
+
+---
+
+#  Árbol base utilizado
+
+```text
+        10
+       /  \
+      5    15
+     / \   / \
+    2   7 12 20
+```
+
+---
+
+# Ejercicio 1 — Recorridos manuales
+
+| Recorrido | Resultado |
+|---|---|
+| Preorden | 10 5 2 7 15 12 20 |
+| Inorden | 2 5 7 10 12 15 20 |
+| Postorden | 2 7 5 12 20 15 10 |
+| BFS | 10 5 15 2 7 12 20 |
+
+---
+
+# Ejercicio 2 — Agregar nuevos nodos
+
+Se añadieron los nodos:
+
+```text
+1, 3, 18, 25
+```
+
+## Árbol modificado
+
+```text
+              10
+            /    \
+           5      15
+         /  \    /  \
+        2    7  12   20
+       / \            / \
+      1   3          18 25
+```
+
+##  Funcionalidad implementada
+
+- Inserción manual de nodos
+- Nuevos recorridos automáticos
+- Expansión de niveles del árbol
+
+---
+
+# Ejercicio 3 — Contar nodos
+
+Se implementó una función recursiva:
+
+```cpp
+contarNodos()
+```
+
+## Función
+
+Recorre todo el árbol y suma cada nodo encontrado.
+
+## Resultado
+
+```text
+Total de nodos: 11
+```
+
+---
+
+# Ejercicio 4 — Contar hojas
+
+Se implementó:
+
+```cpp
+contarHojas()
+```
+
+## ¿Qué hace?
+
+Identifica nodos sin hijos.
+
+## Hojas encontradas
+
+```text
+1, 3, 7, 12, 18, 25
+```
+
+## Resultado
+
+```text
+Total de hojas: 6
+```
+
+---
+
+# Ejercicio 5 — Caso aplicado al proyecto final
+
+## 🌐 Sistema Web representado como árbol binario
+
+```text
+              SmartCampus UTA Web              ← Nivel 0 (raíz)
+                       /                    \
+          Usuarios y Acceso          Gestión de Procesos  ← Nivel 1
+            /         \                 /            \
+    Autenticación  Roles y Permisos  Trámites    Turnos(Cola) ← Nivel 2
+      /     \         /       \       /    \      /       \
+Registrar Buscar AsignarRol Consultar Registrar Historial Atender Reportes ← Nivel 3
+```
+
+---
+
+# Aplicación de recorridos
+
+| Recorrido | Uso |
+|---|---|
+| Preorden | Mostrar primero el módulo principal |
+| Postorden | Procesar primero módulos internos |
+| BFS | Mostrar módulos nivel por nivel |
+
+---
+
+#  Uso de recursividad
+
+La recursividad fue utilizada en:
+
+- Preorden
+- Inorden
+- Postorden
+- Contar nodos
+- Contar hojas
+
+## Funcionamiento
+
+Cada función se llama a sí misma para recorrer automáticamente:
+
+```text
+Raíz → Subárbol izquierdo → Subárbol derecho
+```
+
+---
+
+# Uso de cola (Queue)
+
+La cola fue utilizada en el recorrido:
+
+```text
+BFS (Breadth First Search)
+```
+
+## Aplicación
+
+Permite recorrer el árbol:
+
+- Nivel por nivel
+- De izquierda a derecha
+
+---
+
+# Comparación entre C++ y Java
+
+| C++ | Java |
+|---|---|
+| Usa punteros | Usa objetos y referencias |
+| Mayor control de memoria | Gestión automática de memoria |
+| Sintaxis más técnica | Sintaxis más simple |
+| Usa `->` | Usa `.` |
+
+---
+
+# Uso de IA como apoyo
+
+La inteligencia artificial fue utilizada como herramienta de apoyo para comprender conceptos relacionados con:
+
+- Árboles binarios
+- Recursividad
+- BFS y DFS
+- Sintaxis de C++ y Java
+
+La IA ayudó principalmente en la resolución de dudas y documentación, mientras que la implementación y adaptación de los ejercicios fue desarrollada progresivamente por el estudiante.
+
+---
+
+# Uso de GitHub
+
+Durante la práctica se utilizó GitHub para:
+
+- Control de versiones
+- Registro de commits
+- Seguimiento de cambios
+- Recuperación de versiones anteriores
+- Organización del proyecto
+
+
+# Conclusiones
+
+- Los recorridos DFS y BFS permiten recorrer árboles de distintas maneras según la necesidad.
+- La recursividad simplifica el recorrido de estructuras jerárquicas.
+- BFS requiere una cola para recorrer niveles correctamente.
+- C++ ofrece mayor control de memoria y Java una sintaxis más sencilla.
+
+```
