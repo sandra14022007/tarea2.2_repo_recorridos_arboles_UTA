@@ -107,10 +107,21 @@ Se trabajó en **C++ y Java**, comparando sintaxis, estructuras dinámicas y man
 
 ---
 # Recorridos implementados en c++ y java 
-![image](assets/image.png)
+<img src="assets/image.png" width="350">
+
+ Visita primero la raíz del árbol y posteriormente recorre el subárbol izquierdo y el derecho mediante recursividad, este método es útil cuando se necesita procesar primero el nodo principal antes de sus descendientes
+
 ![image1](assets/image1.png)
+
+Procesa primero el subárbol izquierdo, luego la raíz y finalmente el subárbol derecho. Este tipo de recorrido es especialmente importante en árboles binarios de búsqueda (BST), ya que permite mostrar los valores ordenados de menor a mayor. 
+
 ![image copy](assets/image%20copy.png)
-![image copy 2](assets/image%20copy%202.png)
+
+Visita primero los hijos izquierdo y derecho antes de procesar la raíz del árbol. Este comportamiento resulta útil en operaciones donde primero deben procesarse los elementos internos antes del nodo principal, como la eliminación de estructuras jerárquicas.
+
+<img src="assets/image%20copy%202.png" width="350">
+
+Resultado de impresión de los diferentes recorridos de nuestro arbol base 
 #  Árbol base utilizado
 
 ```text
@@ -159,6 +170,7 @@ Se añadieron los nodos:
 - Inserción manual de nodos
 - Nuevos recorridos automáticos
 - Expansión de niveles del árbol
+
 ![image copy 3](assets/image%20copy%203.png)
 ![image copy 4](assets/image%20copy%204.png)
 
