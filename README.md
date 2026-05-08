@@ -106,7 +106,11 @@ En esta práctica se implementaron los recorridos:
 Se trabajó en **C++ y Java**, comparando sintaxis, estructuras dinámicas y manejo de memoria.
 
 ---
-
+# Recorridos implementados en c++ y java 
+![image](assets/image.png)
+![image1](assets/image1.png)
+![image copy](assets/image%20copy.png)
+![image copy 2](assets/image%20copy%202.png)
 #  Árbol base utilizado
 
 ```text
@@ -155,7 +159,10 @@ Se añadieron los nodos:
 - Inserción manual de nodos
 - Nuevos recorridos automáticos
 - Expansión de niveles del árbol
+![image copy 3](assets/image%20copy%203.png)
+![image copy 4](assets/image%20copy%204.png)
 
+![image copy 5](assets/image%20copy%205.png)
 ---
 
 # Ejercicio 3 — Contar nodos
@@ -171,7 +178,10 @@ contarNodos()
 Recorre todo el árbol y suma cada nodo encontrado.
 
 ## Resultado
+![image copy 6](assets/image%20copy%206.png)
+![image copy 7](assets/image%20copy%207.png)
 
+![image copy 8](assets/image%20copy%208.png)
 ```text
 Total de nodos: 11
 ```
@@ -197,7 +207,8 @@ Identifica nodos sin hijos.
 ```
 
 ## Resultado
-
+![image copy 9](assets/image%20copy%209.png)
+![image copy 10](assets/image%20copy%2010.png)
 ```text
 Total de hojas: 6
 ```
@@ -206,7 +217,7 @@ Total de hojas: 6
 
 # Ejercicio 5 — Caso aplicado al proyecto final
 
-## 🌐 Sistema Web representado como árbol binario
+## Sistema Web representado como árbol binario
 
 ```text
               SmartCampus UTA Web              ← Nivel 0 (raíz)
@@ -222,11 +233,11 @@ Registrar Buscar AsignarRol Consultar Registrar Historial Atender Reportes ← N
 
 # Aplicación de recorridos
 
-| Recorrido | Uso |
-|---|---|
-| Preorden | Mostrar primero el módulo principal |
-| Postorden | Procesar primero módulos internos |
-| BFS | Mostrar módulos nivel por nivel |
+| Funcionalidad | Recorrido | Explicación |
+|---|---|---|
+| Mostrar menu principal | BFS | Ideal para construir el menú de navegación porque primero muestra los módulos más generales y luego va profundizando. |
+| Procesar primero los módulos internos | Postorden | Cargar primero las operaciones (Registrar, Buscar), luego el módulo que las agrupa (Autenticación), y al final el módulo raíz (Usuarios y Acceso). |
+| Mostrar módulos nivel por nivel | BFS | Al recorrer nivel por nivel se puede renderizar cada nivel como una fila en el dashboard, lo que da una vista clara del organigrama. |
 
 ---
 
